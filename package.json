@@ -1,0 +1,36 @@
+{
+  "name": "arepas-commander",
+  "version": "0.0.1",
+  "description": "Arepas Commander allow to interact with all ArepasApp's development tools in a simple and effective way",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "arepas",
+    "arepasapp",
+    "arepasapp.com",
+    "development",
+    "tools",
+    "toolkit",
+    "vagrant",
+    "box",
+    "boxes",
+    "vritualbox",
+    "vbox",
+    "macos",
+    "windows",
+    "linux",
+    "php",
+    "go",
+    "golang"
+  ],
+  "author": "Juan Scarton",
+  "license": "Apache-2.0",
+  "bin": {
+    "arepas": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0"
+  }
+}
