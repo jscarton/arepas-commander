@@ -1,6 +1,10 @@
 {
   "name": "arepas-commander",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jscarton/arepas-commander.git"
+  },
   "description": "Arepas Commander allow to interact with all ArepasApp's development tools in a simple and effective way",
   "main": "index.js",
   "scripts": {
@@ -28,9 +32,15 @@
   "author": "Juan Scarton",
   "license": "Apache-2.0",
   "bin": {
-    "arepas": "./index.js"
+    "arepas": "./index.js",
+    "arepas-version": "./version.js",
+    "arepas-setup": "./setup.js"
   },
   "dependencies": {
-    "commander": "^2.11.0"
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.11.0",
+    "fs": "0.0.1-security",
+    "simple-git": "^1.77.0"
   }
 }
