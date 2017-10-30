@@ -33,14 +33,20 @@
   "license": "Apache-2.0",
   "bin": {
     "arepas": "./index.js",
-    "arepas-version": "./version.js",
-    "arepas-setup": "./setup.js"
+    "arepas-init": "init/index.js",
+    "arepas-version": "version/index.js",
+    "arepas-start": "start/index.js",
+    "arepas-stop": "stop/index.js",
+    "arepas-reload": "reload/index.js",
+    "arepas-delete": "delete/index.js",
+    "arepas-connect": "connect/index.js",
+    "arepas-delete": "delete/index.js"
   },
   "dependencies": {
+    "chalk": "^2.1.0",
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "commander": "^2.11.0",
-    "fs": "0.0.1-security",
-    "simple-git": "^1.77.0"
+    "fs": "0.0.1-security"
   }
 }

@@ -1,0 +1,1 @@
+console.log(chalk.cyan('INFO:')+'ADE CLI Version: 0.0.1 Codename: LA PELUA');
