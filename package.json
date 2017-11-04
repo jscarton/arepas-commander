@@ -34,7 +34,6 @@
   "bin": {
     "arepas": "./index.js",
     "arepas-init": "init/index.js",
-    "arepas-version": "version/index.js",
     "arepas-start": "start/index.js",
     "arepas-stop": "stop/index.js",
     "arepas-reload": "reload/index.js",
