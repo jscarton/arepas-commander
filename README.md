@@ -4,10 +4,11 @@ Arepas Commander is an NPM CLI tool to interact with an ADEs (Arepas Development
 
 ## Prerequisites
 
-* Vagrant
-* Virtualbox
-* Node
-* NPM
+The following software needs to be installed on your system:
+
+* [Vagrant](https://www.vagrantup.com)
+* [Virtualbox](https://www.virtualbox.org)
+* [latest Node and NPM](https://nodejs.org/en/)
 
 ## Arepas Development Environment (ADE)
 
@@ -89,7 +90,7 @@ Example for PHP
 The meaining of every setting is explained in each ADE's github repository.
 
 * [Arepas 4 PHP](https://github.com/jscarton/arepas4php)
-* [Arepas 4 Go](https://github.com/jscarton/arepas4go))
+* [Arepas 4 Go](https://github.com/jscarton/arepas4go)
 
 ## Starting your ADE
 
@@ -125,4 +126,29 @@ cd workspace
 arepas reload php
 ```
 
-## 
+## Deleting your ADE
+
+Once you have finished and shipped your software product you could destroy  your ADE to free space on your system.
+
+```bash
+cd workspace
+arepas delete php
+```
+
+## Running Recipes
+
+This feature is still on development
+
+## Developing Software with an ADE
+
+This tutorial will be on the Wiki and is still on development
+
+
+## Contributing
+
+To report issues use this repo issues tracker.
+
+To collaborate with arepas-commander CLI fork and do some pull request (and welcome!!!)
+
+To contact me write me at <jscarton@gmail.com>
+
