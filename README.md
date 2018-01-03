@@ -9,6 +9,7 @@ The following software needs to be installed on your system:
 * [Vagrant](https://www.vagrantup.com)
 * [Virtualbox](https://www.virtualbox.org)
 * [latest Node and NPM](https://nodejs.org/en/)
+* [GIT](https://git-scm.com)
 
 ## Arepas Development Environment (ADE)
 
