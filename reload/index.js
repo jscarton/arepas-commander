@@ -10,13 +10,13 @@ var cwd=process.cwd();
 //parse commands args and options
 
 program
-    .arguments('<platform>')
+    .arguments('<project>')
 	.parse(process.argv);
 
-var platform=program.args[0];
+var project=program.args[0];
 
-if (platform==undefined){
-  console.log(chalk.red('ERROR:')+'missing argument <platform>');
+if (project==undefined){
+  console.log(chalk.red('ERROR:')+'missing argument <project>');
   shell.exit(1);
 }
 
@@ -39,18 +39,18 @@ if (!check_vbox) {
 else
 	console.log(chalk.green('SUCCESS:')+ 'VirtualBox found at '+check_vbox);
 
-console.log(chalk.cyan('INFO:')+ 'starting Arepas Developer Environment (ADE) at '+cwd+'arepas4'+platform);
+console.log(chalk.cyan('INFO:')+ 'starting Arepas Developer Environment (ADE) at '+cwd+'/'+project);
 
 //Setup ADE specific platform
 try {
-  fs.accessSync('arepas4'+platform, fs.constants.R_OK);
-  shell.cd('arepas4'+platform);
+  fs.accessSync(project, fs.constants.R_OK);
+  shell.cd(project);
   if (shell.exec("vagrant reload").code !== 0) {
     console.log(chalk.red('ERROR:')+'sorry, vagrant has returned a non zero exit code, please check output to see what happened');
     shell.exit(1);
   }
 } catch (e) {
-    console.log(chalk.cyan('ERROR:')+ 'trying to reload ADE for '+platform.toUpperCase()+", please ensure you have initialized this ADE");
+    console.log(chalk.cyan('ERROR:')+ 'trying to reload ADE for '+project.toUpperCase()+", please ensure you have initialized this ADE");
 }
 
-console.log(chalk.green('SUCCESS:')+ 'ADE for '+platform.toUpperCase()+' has been reloaded at '+cwd+'/arepas4'+platform);
+console.log(chalk.green('SUCCESS:')+ 'ADE for '+project.toUpperCase()+' has been reloaded at '+cwd+'/'+project);

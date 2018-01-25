@@ -11,13 +11,13 @@ var vcwd=process.cwd();
 //parse commands args and options
 
 program
-    .arguments('<platform>')
+    .arguments('<project>')
 	.parse(process.argv);
 
-var platform=program.args[0];
+var project=program.args[0];
 
-if (platform==undefined){
-  console.log(chalk.red('ERROR:')+'missing argument <platform>');
+if (project==undefined){
+  console.log(chalk.red('ERROR:')+'missing argument <project>');
   shell.exit(1);
 }
 
@@ -42,9 +42,9 @@ else
 
 //Setup ADE specific platform
 try {
-  fs.accessSync('arepas4'+platform, fs.constants.R_OK);
-  shell.cd('arepas4'+platform);
+  fs.accessSync(project, fs.constants.R_OK);
+  shell.cd(project);
   shell_interactive.execFileSync("vagrant", ['ssh'], {stdio: 'inherit',cwd:process.cwd()});  
 } catch (e) {
-    console.log(chalk.cyan('ERROR:')+ 'trying to connect to ADE for '+platform.toUpperCase()+", please ensure you have initialized this ADE");
+    console.log(chalk.cyan('ERROR:')+ 'trying to connect to ADE for '+project.toUpperCase()+", please ensure you have initialized this ADE");
 }

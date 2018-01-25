@@ -11,10 +11,13 @@ var cwd=process.cwd();
 
 program
     .arguments('<platform>')
+    .arguments('<project>')
 	.parse(process.argv);
 
 var platform=program.args[0];
-console.log(platform);
+var project="arepas4"+program.args[0];
+if (program.args.length>1)
+    project=program.args[1];
 if (platform==undefined){
   console.log(chalk.red('ERROR:')+'missing argument <platform>');
   shell.exit(1);
@@ -73,17 +76,17 @@ shell.cd("..");
 
 //Setup ADE specific platform
 try {
-  fs.accessSync('arepas4'+platform, fs.constants.R_OK);
+  fs.accessSync(project, fs.constants.R_OK);
 } catch (e) {
     console.log(chalk.cyan('INFO:')+ 'trying to clone ADE for '+platform.toUpperCase()+" from https://github.com/jscarton/arepas4"+platform+".git");
     // clone ADE for specific platform
-    if (shell.exec("git clone https://github.com/jscarton/arepas4"+platform+".git").code !== 0) {
+    if (shell.exec("git clone https://github.com/jscarton/arepas4"+platform+".git "+project).code !== 0) {
         console.log(chalk.red('ERROR:')+'git clone failed please check your internet connection');
         shell.exit(1);
     }
     else
     {
-      shell.cd("arepas4"+platform);
+      shell.cd(project);
       console.log("entering to "+process.cwd());
       shell.rm('-rf', '.git');
       shell.cd("..");
@@ -91,14 +94,14 @@ try {
 }
 //Setup Basic Settings for ADE
 try {
-  fs.accessSync('./arepas4'+platform+'/ade_'+platform+'.json', fs.constants.R_OK);
+  fs.accessSync('./'+project+'/ade_'+platform+'.json', fs.constants.R_OK);
 } catch (e) {
-    console.log(chalk.cyan('INFO:')+ 'copying base settings to arepas4'+platform+"/ade_"+platform+".json");
+    console.log(chalk.cyan('INFO:')+ 'copying base settings to '+project+"/ade_"+platform+".json");
     // checkout ADE for specific platform
-    if (shell.cp('./arepas-recipes/recipes/env-json/ade_'+platform+'.json', './arepas4'+platform+'/').code !== 0) {
+    if (shell.cp('./arepas-recipes/recipes/env-json/ade_'+platform+'.json', './'+project+'/').code !== 0) {
         console.log(chalk.red('ERROR:')+'failed to initialize ADE settings');
         shell.exit(1);
     }
 }
 
-console.log(chalk.cyan('INFO:')+ 'ADE for '+platform.toUpperCase()+' has been initialized at '+cwd+'/arepas4'+platform);
+console.log(chalk.cyan('INFO:')+ 'ADE for '+platform.toUpperCase()+' has been initialized at '+cwd+'/'+project);
