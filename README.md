@@ -41,7 +41,7 @@ In example:
 ```bash
 mkdir workspace
 cd workspace
-arepas init php
+arepas init php myproject
 ```
 
 After initializing your ADE you will have a new folder in your workspace with a Vagrantfile and an ade_{platform}.json file.
@@ -99,16 +99,25 @@ Once initilized your ADE you need to start it. On the first start up vagrant wil
 
 ```bash
 cd workspace
-arepas start php
+arepas start myproject
 ```
 
 ## Connecting to your ADE
 
-Sometime you need to connect to your running ADE using _SSH_. You just need to type this on your workspace to open an SSH connection in your shell:
+Sometimes you need to connect to your running ADE using _SSH_. You just need to type this on your workspace to open an SSH connection in your shell:
 
 ```bash
 cd workspace
-arepas connect php
+arepas connect myproject
+```
+
+## Check Status of your ADE
+
+If you want to check the status of your ADE just type this on your workspace to open an SSH connection in your shell:
+
+```bash
+cd workspace
+arepas status myproject
 ```
 
 ## Stopping or Reloading your ADE
@@ -117,14 +126,14 @@ To stop your ADE,type this on your workspace on your shell:
 
 ```bash
 cd workspace
-arepas stop php
+arepas stop myproject
 ```
 
 To reload your ADE,type this on your workspace on your shell:
 
 ```bash
 cd workspace
-arepas reload php
+arepas reload myproject
 ```
 
 ## Deleting your ADE
@@ -133,7 +142,7 @@ Once you have finished and shipped your software product you could destroy  your
 
 ```bash
 cd workspace
-arepas delete php
+arepas delete myproject
 ```
 
 ## Running Recipes
