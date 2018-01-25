@@ -3,6 +3,7 @@ var program = require('commander');
 var shell = require('shelljs');
 var fs = require('fs');
 var chalk = require('chalk');
+var shell_interactive = require('child_process');
 
 //get current working directory
 var cwd=process.cwd();
@@ -47,7 +48,7 @@ try {
   shell.cd(project);
   shell_interactive.execFileSync("vagrant", ['destroy'], {stdio: 'inherit',cwd:process.cwd()});
 } catch (e) {
-    console.log(chalk.cyan('ERROR:')+ 'trying to stop ADE for '+project.toUpperCase()+", please ensure you have initialized this ADE");
+    console.log(chalk.cyan('ERROR:')+ 'trying to destroy ADE for '+project.toUpperCase()+", please ensure you have initialized this ADE");
 }
 
 console.log(chalk.green('SUCCESS:')+ 'ADE for '+project.toUpperCase()+' has been destroyed at '+cwd+'/'+project);
