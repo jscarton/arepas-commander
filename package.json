@@ -39,7 +39,8 @@
     "arepas-reload": "reload/index.js",
     "arepas-delete": "delete/index.js",
     "arepas-connect": "connect/index.js",
-    "arepas-delete": "delete/index.js"
+    "arepas-delete": "delete/index.js",
+    "arepas-status": "status/index.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
